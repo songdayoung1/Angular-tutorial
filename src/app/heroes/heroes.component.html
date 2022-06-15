@@ -1,0 +1,37 @@
+<h2>My heroes</h2>
+<div>
+  <label for="new-hero">Hero-name</label>
+  <input id="new-hero" #heroName />
+  <button class="add-button" (click)="add(heroName.value); heroName.value = ''">
+    Add hero
+  </button>
+</div>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <!-- <li
+  *ngFor="let hero of heroes"
+  [class.selected]="hero === selectedHero"
+  (click)="onSelect(hero)"> -->
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span
+      >{{ hero.name }}
+    </a>
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+
+<!-- <div *ngIf="selectedHero"> -->
+<!-- *ngIf로 전체를 감싸면 값이 undefined일 때 오류가 뜨지 않는다. 
+        이유 : Dom에서 undefined면 제거하기 떄문에 -->
+<!-- <h2>{{ selectedHero.name | uppercase }} Details</h2> -->
+<!-- <h2>{{ her | lowercase }}</h2> -->
+<!-- 파이프 연산자 (|) 와 앵귤러가 제공하는 기본 파이프인 UppercasePipe이다.  -->
+<!-- <div><span> id :</span>{{ selectedHero.id }}</div> -->
+<!-- <div>
+    <label for="name">Hero name:</label>
+    <input id="name" [(ngModel)]="selectedHero.name" /> -->
+<!-- [(ngModel)] 양방향 바인딩 문법  -->
+<!-- </div>
+</div> -->
